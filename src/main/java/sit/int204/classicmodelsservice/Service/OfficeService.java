@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.HttpClientErrorException;
+import sit.int204.classicmodelsservice.Exeptuion.ItemNotFoundException;
 import sit.int204.classicmodelsservice.Model.Count;
 import sit.int204.classicmodelsservice.Model.Office;
 import sit.int204.classicmodelsservice.repository.OfficeRepository;
@@ -24,7 +25,7 @@ public class OfficeService {
     }
     public Office getOffice(String officeCode) {
         return repository.findById(officeCode).orElseThrow(
-                () -> new HttpClientErrorException(HttpStatus.NOT_FOUND, "Office Id " + officeCode + " DOES NOT EXIST !!!") {
+                () -> new ItemNotFoundException("Office Id " + officeCode + " DOES NOT EXIST !!!") {
                 }
         );
     }

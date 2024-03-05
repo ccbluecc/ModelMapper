@@ -33,6 +33,6 @@ public class Office {
     @Column(name = "territory", nullable = false, length = 10)
     private String territory;
     @JsonIgnore
-    @OneToMany(mappedBy = "office")
+    @OneToMany(mappedBy = "office", fetch = FetchType.EAGER)
     private Set<Employee> employees = new LinkedHashSet<>();
 }
