@@ -1,5 +1,7 @@
 package sit.int204.classicmodelsservice.Controller;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,15 +28,15 @@ public class ProductController {
     @GetMapping("")
     public ResponseEntity<Object> findAllProducts(
             @RequestParam(defaultValue =
-                    "") String productName,
+                    "") @Size(min=5) String productName,
             @RequestParam(defaultValue = "0") Double lower,
             @RequestParam(defaultValue = "0") Double upper,
             @RequestParam(defaultValue =
                     "") String[] sortBy,
             @RequestParam(defaultValue = "ASC") String[] sortDirection,
-            @RequestParam(defaultValue = "0") int pageNo,
-                    @RequestParam(defaultValue = "10") int pageSize
-    ){
+            @RequestParam(defaultValue = "0") @Min(0) int pageNo,
+            @RequestParam(defaultValue = "10") @Min(10) int pageSize
+            ){
         if(pageSize == 0 ){
             return ResponseEntity.ok(service.findAllProducts());
         }else {

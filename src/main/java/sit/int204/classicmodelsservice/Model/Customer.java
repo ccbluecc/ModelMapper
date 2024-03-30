@@ -41,11 +41,13 @@ public class Customer {
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "salesRepEmployeeNumber")
-    private Employee salesRepEmployee;
+    private Employee sales;
 
     private Double creditLimit;
-
     @OneToMany(mappedBy = "customer")
     private List<Order> orders = new ArrayList<>();
+
+    private String password;
+    private String role;
 }
 

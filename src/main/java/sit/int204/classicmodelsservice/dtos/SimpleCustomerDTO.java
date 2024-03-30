@@ -19,7 +19,7 @@ public class SimpleCustomerDTO {
     @JsonIgnore
     private SimpleEmployeeDTO sales;
     public String getSalesPerson() {
-        return sales == null ? "-" : sales.getName() + "-" + sales.getSalesOfficeCity();
+        return sales == null ? "-" : sales.getName() + "-" ;
     }
 }
 

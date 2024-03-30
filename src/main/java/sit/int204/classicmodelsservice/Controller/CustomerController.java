@@ -1,5 +1,7 @@
 package sit.int204.classicmodelsservice.Controller;
 
+
+import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +17,7 @@ import sit.int204.classicmodelsservice.Model.Customer;
 import sit.int204.classicmodelsservice.Model.Order;
 import sit.int204.classicmodelsservice.Service.CustomerService;
 import sit.int204.classicmodelsservice.Service.ListMapper;
+import sit.int204.classicmodelsservice.dtos.NewCustomerDTO;
 import sit.int204.classicmodelsservice.dtos.SimpleCustomerDTO;
 
 import java.util.List;
@@ -59,6 +62,16 @@ public class CustomerController {
         } else {
             return ResponseEntity.ok(listMapper.mapList(service.getCustomers(), SimpleCustomerDTO.class, modelMapper));
         }
+    }
+
+    @PostMapping("")
+    public NewCustomerDTO createCustomer(
+            @Valid @RequestBody NewCustomerDTO newCustomer) {
+        return service.createCustomer(newCustomer);
+    }
+    @GetMapping("/testQueryByExample")
+    public List<NewCustomerDTO> findAllCustomer(@RequestParam(required = false) String productline){
+        return service.getAllCustomers();
     }
 
 //        @ExceptionHandler(ItemNotFoundException.class)
