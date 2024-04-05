@@ -9,8 +9,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.ConstraintComposition;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.beans.ConstructorProperties;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -24,4 +26,6 @@ public class User {
     private String password;
 
 
+    public User(String userName, String password, Collection<? extends GrantedAuthority> authorities) {
+    }
 }

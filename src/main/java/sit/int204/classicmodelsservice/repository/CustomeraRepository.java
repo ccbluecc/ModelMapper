@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CustomeraRepository extends JpaRepository<Customera, Long> {
     List<Customera> findByFirstNameContains(String param);
+
+
 }

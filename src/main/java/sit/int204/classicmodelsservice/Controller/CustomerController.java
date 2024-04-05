@@ -74,11 +74,11 @@ public class CustomerController {
         return service.getAllCustomers();
     }
 
-//        @ExceptionHandler(ItemNotFoundException.class)
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    public ItemNotFoundException handleItemNotFound(ItemNotFoundException exception){
-//        return exception;
-//    }
+        @ExceptionHandler(ItemNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ItemNotFoundException handleItemNotFound(ItemNotFoundException exception){
+        return exception;
+    }
 
 
 //    @ExceptionHandler(Exception.class)
