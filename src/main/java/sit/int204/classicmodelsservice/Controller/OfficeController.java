@@ -23,7 +23,7 @@ public class OfficeController {
     }
     @GetMapping("/{officeCode}/employees")
     public Set<Employee> getOfficeEmployee(@PathVariable String officeCode){
-        return service.getOffice(officeCode).getEmployees();
+        return service.getAllOffice(officeCode).getEmployees();
     }
     @GetMapping("/{officeCode}")
     public Office getOfficeById(@PathVariable String officeCode) {

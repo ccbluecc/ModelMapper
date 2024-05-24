@@ -23,12 +23,7 @@ public class OfficeService {
             return repository.findAllById(List.of(param));
         }
     }
-    public Office getOffice(String officeCode) {
-        return repository.findById(officeCode).orElseThrow(
-                () -> new ItemNotFoundException("Office Id " + officeCode + " DOES NOT EXIST !!!") {
-                }
-        );
-    }
+
     @Transactional
     public Office createNewOffice(Office office) {
         return repository.save(office);

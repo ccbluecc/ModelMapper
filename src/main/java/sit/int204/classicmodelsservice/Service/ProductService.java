@@ -20,6 +20,7 @@ public class ProductService {
     public List<Product> insertProduct(List<Product> products) {
         return repository.saveAll(products);
     }
+
     public List<Product> findAllProducts(Double lower, Double upper, String productName){
         if(upper < lower){
             double tmp = upper;
@@ -49,11 +50,6 @@ public class ProductService {
                     Sort.Direction.ASC : Sort.Direction.DESC), sortBy[i]));
             }
         }
-//        if(sortBy == null || sortBy.isEmpty()){
-//            sortBy = "productCode";
-//        }
-//        Sort.Order sortOrder = new Sordt.Order((direction.equalsIgnoreCase("asc") ?
-//                Sort.Direction.ASC : Sort.Direction.DESC), sortBy);
         if (pageSize <= 0){
             pageSize = (int) repository.count();
         }

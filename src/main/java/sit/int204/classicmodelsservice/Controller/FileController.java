@@ -41,8 +41,7 @@ public class FileController {
         System.out.println("File extension" + extension);
         if (extension.equalsIgnoreCase(".pdf")){
             return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).body(file);
-        }
-        else {
+        } else {
             return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(file);
         }
     }

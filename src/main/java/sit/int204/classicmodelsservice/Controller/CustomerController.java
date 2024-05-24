@@ -40,10 +40,6 @@ public class CustomerController {
 
     }
 
-//    @GetMapping("")
-//    public List<Customer> getAllCustomer() {
-//        return service.getAllCustomer();
-//    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getCustomerOrder(@PathVariable Integer id) {
@@ -74,20 +70,14 @@ public class CustomerController {
         return service.getAllCustomers();
     }
 
-        @ExceptionHandler(ItemNotFoundException.class)
+    @ExceptionHandler(ItemNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ItemNotFoundException handleItemNotFound(ItemNotFoundException exception){
         return exception;
     }
 
 
-//    @ExceptionHandler(Exception.class)
-//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-//    public Exception handleOther(Exception exception) {
-//        GeneralException generalException = new GeneralException(exception.getMessage());
-//        generalException.setTitle();
-//        return generalException;
-//    }
+
 
 }
 
